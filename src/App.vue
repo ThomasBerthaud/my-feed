@@ -1,31 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>
+    <section class="hero is-primary">
+      <div class="hero-body">
+        <nav class="level">
+          <div class="level-left">
+            <router-link to="/">
+              <div class="container">
+                <h1 class="title">MY-FEED</h1>
+                <h1 class="subtitle">Bienvenue sur votre feed</h1>
+              </div>
+            </router-link>
+          </div>
+          <div class="level-right">
+            <router-link to="/add">
+              <button class="button is-outlined is-inverted is-primary is-medium">
+                <span>Ajouter un feed</span>
+                <span class="icon is-small"><i class="fas fa-plus-circle"></i></span>
+              </button>
+            </router-link>
+          </div>
+        </nav>
+      </div>
+    </section>
     <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>

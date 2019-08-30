@@ -1,16 +1,32 @@
 <template>
-  <div class="home">
-    <h1>Welcome to your feed, What's new today ?</h1>
-    <XkcdFeed />
-  </div>
+  <section class="section">
+    <div class="container">
+      <div class="tile is-ancestor">
+        <Feed v-for="feed in feeds" :key="feed.key" :feed-params="feed" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
 // @ is an alias to /src
-import components from "@/components/feeds";
+import Feed from "@/components/Feed";
 
 export default {
   name: "home",
-  components
+  components: {
+    Feed
+  },
+  data() {
+    return {
+      feeds: [
+        { url: "https://xkcd.com/atom.xml", type: "atom" },
+        { url: "https://www.swordscomic.com/swords/feed", type: "rss" }
+      ]
+    };
+  },
+  created() {
+    // TODO retrieve feeds from localStorage
+  }
 };
 </script>
