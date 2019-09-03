@@ -30,16 +30,10 @@ app.listen(3000, function() {
 
 async function getFeed(req, res, next) {
   const feedUrl = req.query.url;
-  const type = req.query.type || "rss";
 
   if (!feedUrl) {
     console.error("missing feed url");
     res.status(400).send("missing feed url");
-    return;
-  }
-  if (!["atom", "rss"].includes(type)) {
-    console.error("wrong feed type");
-    res.status(400).send("wrong feed type");
     return;
   }
 
@@ -47,14 +41,23 @@ async function getFeed(req, res, next) {
     const response = await axios.get(feedUrl);
     parser.parseString(response.data, (err, result) => {
       if (err) next(err);
+      const type = guessFeedType(result);
       const parsedFeed = type === "atom" ? parseAtomFeed(result) : parseRssFeed(result);
       res.locals.feed = parsedFeed;
       next();
     });
   } catch (e) {
     console.error(e);
-    if (e.isAxiosError) res.status(e.response.status).send(e.response.data);
+    if (e.isAxiosError) res.status(400).send("could not fetch this feed");
     else res.status(500).send("An error occured while fetching feed");
+  }
+}
+
+function guessFeedType(feed) {
+  if (feed && feed.feed) {
+    return "atom";
+  } else {
+    return "rss";
   }
 }
 

@@ -26,7 +26,7 @@ export default {
     };
   },
   created() {
-    axios.get(`/feed/latest?url=${this.feedParams.url}&type=${this.feedParams.type}`).then(response => {
+    axios.get(`/feed/latest?url=${this.feedParams.url}`).then(response => {
       this.feed = response.data;
       console.log(this.feed);
     });

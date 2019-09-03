@@ -19,10 +19,7 @@ export default {
   },
   data() {
     return {
-      feeds: [
-        { url: "https://xkcd.com/atom.xml", type: "atom" },
-        { url: "https://www.swordscomic.com/swords/feed", type: "rss" }
-      ]
+      feeds: [{ url: "https://xkcd.com/atom.xml" }, { url: "https://www.swordscomic.com/swords/feed" }]
     };
   },
   created() {
