@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "api": "node api"
+    "api": "node api",
+    "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.10.2",
@@ -22,6 +23,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-plugin-e2e-cypress": "^3.11.0",
     "@vue/cli-plugin-eslint": "^3.9.0",
     "@vue/cli-service": "^3.9.0",
     "@vue/eslint-config-prettier": "^4.0.1",
