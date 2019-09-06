@@ -1,8 +1,8 @@
 <template>
   <section class="section">
     <div class="container">
-      <div class="tile is-ancestor">
-        <Feed v-for="feed in feeds" :key="feed.key" :feed-params="feed" />
+      <div class="columns is-multiline">
+        <Feed class="column is-one-third" v-for="feed in feeds" :key="feed.key" :feed-params="feed" />
       </div>
     </div>
   </section>
@@ -19,7 +19,12 @@ export default {
   },
   data() {
     return {
-      feeds: [{ url: "https://xkcd.com/atom.xml" }, { url: "https://www.swordscomic.com/swords/feed" }]
+      feeds: [
+        { url: "https://xkcd.com/atom.xml" },
+        { url: "https://xkcd.com/atom.xml" },
+        { url: "https://xkcd.com/atom.xml" },
+        { url: "https://www.swordscomic.com/swords/feed" }
+      ]
     };
   },
   created() {

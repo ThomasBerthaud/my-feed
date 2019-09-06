@@ -66,7 +66,7 @@ function parseAtomFeed(atomFeed) {
   const { feed } = atomFeed;
 
   parsed.title = feed.title[0];
-  parsed.link = feed.link[0];
+  parsed.link = feed.link[0].$.href;
   parsed.id = feed.id[0];
   parsed.updated = feed.updated[0];
 
