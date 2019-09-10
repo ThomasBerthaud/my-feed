@@ -6,6 +6,7 @@ const morgan = require("morgan");
 
 const app = express();
 const parser = new xml2js.Parser();
+const PORT = process.env.PORT || 3000;
 
 app.use(morgan("tiny"));
 app.use(express.static(path.join(__dirname, "../dist")));
@@ -24,8 +25,8 @@ app.get("/feed/latest", getFeed, function(req, res) {
   }
 });
 
-app.listen(3000, function() {
-  console.log("server started on port 3000");
+app.listen(PORT, function() {
+  console.log(`server started on port ${PORT}`);
 });
 
 async function getFeed(req, res, next) {
