@@ -2,13 +2,11 @@ const express = require("express");
 const path = require("path");
 const axios = require("axios");
 const xml2js = require("xml2js");
-const morgan = require("morgan");
 
 const app = express();
 const parser = new xml2js.Parser();
 const PORT = process.env.PORT || 3000;
 
-app.use(morgan("tiny"));
 app.use(express.static(path.join(__dirname, "../dist")));
 
 app.get("/feed", getFeed, function(req, res) {
