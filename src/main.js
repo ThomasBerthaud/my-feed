@@ -2,8 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import "bulma/css/bulma.min.css";
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import "bulma/css/bulma.css";
+import "@fortawesome/fontawesome-free/css/solid.css";
 
 Vue.config.productionTip = false;
 
