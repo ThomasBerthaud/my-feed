@@ -2,7 +2,7 @@
   <section class="section">
     <div class="container">
       <div class="columns is-multiline">
-        <Feed class="column is-one-third" v-for="feed in feeds" :key="feed.key" :feed-params="feed" />
+        <Feed class="column is-one-third" v-for="feed in feeds" :key="feed.id" :feed-params="feed" />
       </div>
     </div>
   </section>

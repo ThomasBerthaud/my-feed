@@ -66,13 +66,13 @@ function parseAtomFeed(atomFeed) {
 
   parsed.title = feed.title[0];
   parsed.link = feed.link[0].$.href;
-  parsed.id = feed.id[0];
+  parsed.id = encode(feed.id[0]);
   parsed.updated = feed.updated[0];
 
   parsed.entries = [];
   feed.entry.forEach(entry => {
     parsed.entries.push({
-      id: entry.id[0],
+      id: encode(entry.id[0]),
       title: entry.title[0],
       link: entry.link[0].$.href,
       summary: entry.summary[0]._,
@@ -86,6 +86,27 @@ function parseAtomFeed(atomFeed) {
 // TODO implement rss parser
 function parseRssFeed(rssFeed) {
   const parsed = {};
+  const feed = rssFeed.rss.channel[0];
+
+  parsed.title = feed.title[0];
+  parsed.link = feed.link[0];
+  parsed.id = encode(feed.link[0]);
+  parsed.updated = feed.item[0].pubDate[0];
+  parsed.entries = [];
+  feed.item.forEach(item => {
+    parsed.entries.push({
+      id: encode(item.link[0]),
+      title: item.title[0],
+      link: item.link[0],
+      summary: item.description[0],
+      updated: item.pubDate[0]
+    });
+  });
   console.log(rssFeed);
   return parsed;
+}
+
+function encode(str) {
+  const buffer = new Buffer(str);
+  return buffer.toString("base64");
 }

@@ -55,7 +55,8 @@ export default {
   },
   computed: {
     readableUpdated() {
-      return new Date(this.feed.updated).toDateString();
+      const formatted = new Date(this.feed.updated);
+      return isNaN(formatted) ? this.feed.updated : formatted.toDateString();
     }
   },
   created() {
