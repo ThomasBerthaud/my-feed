@@ -1,5 +1,6 @@
 const axios = require("axios");
 const xml2js = require("xml2js");
+const { get } = require("lodash");
 
 const parser = new xml2js.Parser();
 
@@ -41,7 +42,7 @@ function parseAtomFeed(atomFeed) {
   const { feed } = atomFeed;
 
   parsed.title = feed.title[0];
-  parsed.link = feed.link[0].$.href;
+  parsed.link = get(feed, "link[0].$.href");
   parsed.id = encode(feed.id[0]);
   parsed.updated = feed.updated[0];
 
@@ -50,8 +51,8 @@ function parseAtomFeed(atomFeed) {
     parsed.entries.push({
       id: encode(entry.id[0]),
       title: entry.title[0],
-      link: entry.link[0].$.href,
-      summary: entry.summary[0]._,
+      link: get(entry, "link[0].$.href"),
+      summary: get(entry, "summary[0]._"),
       updated: entry.updated[0]
     });
   });

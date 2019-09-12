@@ -1,3 +1,4 @@
 rework dates (different feeds have different format)
 add typescript to backend
 add spinner when loading feed
+try to use bulma's tile system

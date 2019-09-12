@@ -19,11 +19,11 @@ export default {
   },
   data() {
     return {
-      feeds: ["https://xkcd.com/atom.xml", "https://www.swordscomic.com/swords/feed"]
+      feeds: []
     };
   },
   created() {
-    // TODO retrieve feeds from localStorage
+    this.feeds = this.$store.state.feeds;
   }
 };
 </script>

@@ -19,7 +19,7 @@
         <router-link :to="'/details/' + feed.id" class="card-footer-item">
           Voir les autres...
         </router-link>
-        <a :href="feed.link" class="card-footer-item" aria-label="external link">
+        <a :href="feed.entries[0].link" class="card-footer-item" aria-label="external link">
           <span>Acceder au site</span>
           <span class="icon"><i class="fas fa-external-link-alt"></i></span>
         </a>
@@ -67,4 +67,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.card-header-title {
+  word-break: break-all;
+}
+</style>
