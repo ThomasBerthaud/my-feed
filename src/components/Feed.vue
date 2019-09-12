@@ -27,7 +27,7 @@
     </div>
     <div v-if="!feed" class="card">
       <header class="card-header">
-        <p class="card-header-title">{{ feedParams.url }}</p>
+        <p class="card-header-title">{{ feedUrl }}</p>
       </header>
       <div class="card-content">
         <div class="content">
