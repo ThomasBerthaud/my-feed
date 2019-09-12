@@ -1,9 +1,13 @@
 # my-feed
 
+A simple rss and atom feed aggregator made with vuejs
+
 ## Project setup
 ```
 npm install
 ```
+
+## Static website (vuejs + vuex + vue-router)
 
 ### Compiles and hot-reloads for development
 ```
@@ -15,9 +19,9 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Run e2e tests
 ```
-npm run test
+npm run test:e2e
 ```
 
 ### Lints and fixes files
@@ -25,9 +29,16 @@ npm run test
 npm run lint
 ```
 
-### Run your unit tests
+## Backend (nodejs)
+
+### Run server for production
 ```
-npm run test:unit
+npm run start
+```
+
+### Run server with hot-reload for development
+```
+npm run start:dev
 ```
 
 ### Customize configuration
