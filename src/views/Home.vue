@@ -2,7 +2,7 @@
   <section class="section">
     <div class="container">
       <div class="columns is-multiline">
-        <Feed class="column is-one-third" v-for="feed in feeds" :key="feed.id" :feed-params="feed" />
+        <Feed class="column is-one-third" v-for="url in feeds" :key="url" :feed-url="url" />
       </div>
     </div>
   </section>
@@ -20,10 +20,10 @@ export default {
   data() {
     return {
       feeds: [
-        { url: "https://xkcd.com/atom.xml" },
-        { url: "https://xkcd.com/atom.xml" },
-        { url: "https://xkcd.com/atom.xml" },
-        { url: "https://www.swordscomic.com/swords/feed" }
+        "https://xkcd.com/atom.xml",
+        "https://xkcd.com/atom.xml",
+        "https://xkcd.com/atom.xml",
+        "https://www.swordscomic.com/swords/feed"
       ]
     };
   },

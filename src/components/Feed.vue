@@ -43,8 +43,8 @@ import axios from "axios";
 export default {
   name: "Feed",
   props: {
-    feedParams: {
-      type: Object,
+    feedUrl: {
+      type: String,
       required: true
     }
   },
@@ -60,7 +60,7 @@ export default {
     }
   },
   created() {
-    axios.get(`/feed/latest?url=${this.feedParams.url}`).then(response => {
+    axios.get(`/feed/latest?url=${this.feedUrl}`).then(response => {
       this.feed = response.data;
     });
   }
