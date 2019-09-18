@@ -19,9 +19,9 @@ npm run serve
 npm run build
 ```
 
-### Run e2e tests
+### Run unit tests
 ```
-npm run test:e2e
+npm run test:unit
 ```
 
 ### Lints and fixes files

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feed.vue displays feed card after http call 1`] = `
+<div>
+  <div
+    class="card"
+  >
+    <header
+      class="card-header"
+    >
+      <p
+        class="card-header-title"
+      >
+        title
+      </p>
+       
+      <router-link-stub
+        aria-label="feed settings"
+        class="card-header-icon"
+        to="/settings/feedID"
+      >
+        <span
+          class="icon"
+        >
+          <i
+            class="fas fa-cog"
+          />
+        </span>
+      </router-link-stub>
+    </header>
+     
+    <div
+      class="card-content limit-size"
+    >
+      <div
+        class="content"
+      >
+        <div>
+          feed summary
+        </div>
+         
+        <time>
+          
+        </time>
+      </div>
+    </div>
+     
+    <div
+      class="card-footer"
+    >
+      <router-link-stub
+        class="card-footer-item"
+        to="/details/feedID"
+      >
+        Voir les autres...
+      </router-link-stub>
+       
+      <a
+        aria-label="external link"
+        class="card-footer-item"
+      >
+        <span>
+          Acceder au site
+        </span>
+         
+        <span
+          class="icon"
+        >
+          <i
+            class="fas fa-external-link-alt"
+          />
+        </span>
+      </a>
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;
