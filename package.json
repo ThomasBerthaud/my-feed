@@ -7,8 +7,7 @@
     "start:dev": "nodemon api",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test:e2e": "vue-cli-service test:e2e"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.10.2",
@@ -24,7 +23,6 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "3.9.0",
-    "@vue/cli-plugin-e2e-cypress": "3.11.0",
     "@vue/cli-plugin-eslint": "3.9.0",
     "@vue/cli-service": "3.9.0",
     "@vue/eslint-config-prettier": "4.0.1",
