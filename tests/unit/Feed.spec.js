@@ -8,7 +8,7 @@ describe("Feed.vue", () => {
   it("displays feed card after http call", async () => {
     // GIVEN
     const feedUrl = "feedUrl";
-    const response = { id: "feedID", title: "title", entries: [{ summary: "feed summary" }] };
+    const response = { id: "feedID", title: "title", entries: [{ summary: "feed summary", link: "link-to-entry" }] };
     axios.get.mockResolvedValue({ data: response });
 
     // WHEN

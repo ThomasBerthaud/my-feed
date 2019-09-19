@@ -58,6 +58,7 @@ exports[`Feed.vue displays feed card after http call 1`] = `
       <a
         aria-label="external link"
         class="card-footer-item"
+        href="link-to-entry"
       >
         <span>
           Acceder au site
