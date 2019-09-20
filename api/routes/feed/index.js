@@ -14,5 +14,8 @@ router.get("/latest", getFeed, function(req, res) {
     res.status(500).send("An error occured while fetching feed");
   }
 });
+router.get("/check", getFeed, function(req, res) {
+  res.status(200).send();
+});
 
 module.exports = router;

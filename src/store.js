@@ -17,8 +17,13 @@ export default new Vuex.Store({
   mutations: {
     addFeed(state, payload) {
       console.log(state, payload);
+      state.feeds = [...state.feeds, payload.feedUrl];
+      localStorage.setItem("feeds", state.feeds);
     },
     updateFeedParams(state, payload) {
+      console.log(state, payload);
+    },
+    deleteFeed(state, payload) {
       console.log(state, payload);
     }
   },

@@ -11,7 +11,7 @@
       </header>
       <div class="card-content limit-size">
         <div class="content">
-          <div v-html="feed.entries[0].summary"></div>
+          <div class="has-text-centered" v-html="feed.entries[0].summary"></div>
           <time :datetime="feed.updated">{{ readableUpdated }}</time>
         </div>
       </div>

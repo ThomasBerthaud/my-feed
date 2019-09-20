@@ -1,8 +1,9 @@
 const axios = require("axios");
 const xml2js = require("xml2js");
-const { get } = require("lodash");
+const { get, isString } = require("lodash");
 
 const parser = new xml2js.Parser();
+const builder = new xml2js.Builder();
 
 async function getFeed(req, res, next) {
   const feedUrl = req.query.url;
@@ -52,7 +53,7 @@ function parseAtomFeed(atomFeed) {
       id: encode(entry.id[0]),
       title: entry.title[0],
       link: get(entry, "link[0].$.href"),
-      summary: get(entry, "summary[0]._"),
+      summary: getHTML(get(entry, "summary[0]._") || get(entry, "content[0]")),
       updated: entry.updated[0]
     });
   });
@@ -74,7 +75,7 @@ function parseRssFeed(rssFeed) {
       id: encode(item.link[0]),
       title: item.title[0],
       link: item.link[0],
-      summary: item.description[0],
+      summary: getHTML(item.description[0]),
       updated: item.pubDate[0]
     });
   });
@@ -83,6 +84,16 @@ function parseRssFeed(rssFeed) {
 
 function encode(str) {
   return Buffer.from(str).toString("base64");
+}
+
+function getHTML(objOrString) {
+  //if it is a string, we assume it is already HTML
+  if (isString(objOrString)) {
+    return objOrString;
+  } else {
+    //else we parse the js to get the HTML as a string
+    return builder.buildObject(objOrString);
+  }
 }
 
 module.exports = {
